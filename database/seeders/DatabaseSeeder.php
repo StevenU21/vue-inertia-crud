@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        Genre::factory(10)->create();
+        Genre::factory(100)->create();
     }
 }

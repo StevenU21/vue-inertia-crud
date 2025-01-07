@@ -10,7 +10,7 @@ class GenreController extends Controller
 {
     public function index()
     {
-        $genres = Genre::latest()->paginate(5);
+        $genres = Genre::paginate(5);
         return Inertia::render('Genres/Index', compact('genres'));
     }
 
