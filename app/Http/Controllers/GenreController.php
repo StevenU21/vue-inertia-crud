@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\GenreRequest;
 use App\Models\Genre;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class GenreController extends Controller
 {
@@ -16,7 +17,8 @@ class GenreController extends Controller
 
     public function create()
     {
-        return Inertia::render('Genres/Create');
+        $genre = new Genre();
+        return Inertia::render('Genres/Create', compact('genre'));
     }
 
     public function store(GenreRequest $request)

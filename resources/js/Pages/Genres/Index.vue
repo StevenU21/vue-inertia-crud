@@ -14,7 +14,9 @@
                     <Pagination :links="genres.links" />
 
                     <Link :href="route('genres.create')">
-                        <PrimaryButton>Create Company</PrimaryButton>
+                        <PrimaryButton>
+                            <i class="fas fa-plus mr-2"></i> Create Genre
+                        </PrimaryButton>
                     </Link>
                 </div>
                 <!-- Tabla de géneros -->
@@ -30,20 +32,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="genre in genres.data" :key="genre.id">
-                                <td class="text-white px-4 py-2">{{ genre.id }}</td>
+                            <tr v-if="genres.data.length === 0">
+                                <td colspan="5" class="text-white px-4 py-8 text-center bg-gray-700 rounded-lg">
+                                    Aún no hay registros
+                                </td>
+                            </tr>
+                            <tr v-else v-for="genre in genres.data" :key="genre.id">
+                                <td class="text-white px-4 py-2">{{ genre.slug }}</td>
                                 <td class="text-white px-4 py-2">{{ genre.name }}</td>
                                 <td class="text-white px-4 py-2">{{ genre.description }}</td>
                                 <td class="text-white px-4 py-2">{{ formatDate(genre.created_at) }}</td>
                                 <td class="text-white px-4 py-2 space-x-4 text-center">
                                     <Link :href="route('genres.show', genre.id)" class="text-blue-500 hover:text-blue-700">
-                                        <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">Mostrar</PrimaryButton>
+                                        <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
+                                            <i class="fas fa-eye mr-2"></i> Mostrar
+                                        </PrimaryButton>
                                     </Link>
                                     <Link :href="route('genres.edit', genre.id)" class="text-blue-500 hover:text-blue-700">
-                                        <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">Editar</PrimaryButton>
+                                        <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
+                                            <i class="fas fa-edit mr-2"></i> Editar
+                                        </PrimaryButton>
                                     </Link>
                                     <PrimaryButton @click="deleteGenre(genre)" class="bg-red-500 hover:bg-red-700 text-white">
-                                        Eliminar
+                                        <i class="fas fa-trash mr-2"></i> Eliminar
                                     </PrimaryButton>
                                 </td>
                             </tr>

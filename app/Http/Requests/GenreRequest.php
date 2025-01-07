@@ -23,7 +23,7 @@ class GenreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:6', 'max:30', 'unique:genres,name' . Rule::unique('genres')->ignore($this->genre)],
+            'name' => ['required', 'string', 'min:6', 'max:30', Rule::unique('genres')->ignore($this->genre)],
             'description' => ['required', 'string', 'min:6', 'max:255']
         ];
     }
