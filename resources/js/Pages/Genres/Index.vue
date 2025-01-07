@@ -24,11 +24,21 @@
                     <table class="w-full">
                         <thead>
                             <tr>
-                                <th class="text-white p-4 text-left">ID</th>
-                                <th class="text-white p-4 text-left">Nombre</th>
-                                <th class="text-white p-4 text-left">Descripción</th>
-                                <th class="text-white p-4 text-left">Fecha de Registro</th>
-                                <th class="text-white p-4">Acciones</th>
+                                <th class="text-white p-4 text-left">
+                                    <i class="fas fa-id-badge mr-2"></i>ID
+                                </th>
+                                <th class="text-white p-4 text-left">
+                                    <i class="fas fa-font mr-2"></i>Nombre
+                                </th>
+                                <th class="text-white p-4 text-left">
+                                    <i class="fas fa-align-left mr-2"></i>Descripción
+                                </th>
+                                <th class="text-white p-4 text-left">
+                                    <i class="fas fa-calendar-alt mr-2"></i>Fecha de Registro
+                                </th>
+                                <th class="text-white p-4">
+                                    <i class="fas fa-cogs mr-2"></i>Acciones
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
