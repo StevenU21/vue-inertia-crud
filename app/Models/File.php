@@ -20,7 +20,7 @@ class File extends Model
     public function castToHumanReadableSize(): string
     {
         $bytes = $this->size;
-        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+        $units = ['B', 'KB', 'MB'];
 
         for ($i = 0; $bytes > 1024; $i++) {
             $bytes /= 1024;
