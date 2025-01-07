@@ -26,11 +26,6 @@ class GenreController extends Controller
         return redirect()->route('genres.index')->with('success', 'Género Creado.');
     }
 
-    public function show(Genre $genre)
-    {
-        return Inertia::render('Genres/Show', compact('genre'));
-    }
-
     public function edit(Genre $genre)
     {
         return Inertia::render('Genres/Edit', compact('genre'));
@@ -40,6 +35,11 @@ class GenreController extends Controller
     {
         $genre->update($request->validated());
         return redirect()->route('genres.index')->with('success', 'Género Actualizado.');
+    }
+
+    public function show(Genre $genre)
+    {
+        return Inertia::render('Genres/Show', compact('genre'));
     }
 
     public function destroy(Genre $genre)
