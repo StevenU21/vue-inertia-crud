@@ -34,7 +34,7 @@
                                 <td class="text-white px-4 py-2">{{ genre.id }}</td>
                                 <td class="text-white px-4 py-2">{{ genre.name }}</td>
                                 <td class="text-white px-4 py-2">{{ genre.description }}</td>
-                                <td class="text-white px-4 py-2">{{ genre.created_at }}</td>
+                                <td class="text-white px-4 py-2">{{ formatDate(genre.created_at) }}</td>
                                 <td class="text-white px-4 py-2 space-x-4 text-center">
                                     <Link :href="route('genres.show', genre.id)" class="text-blue-500 hover:text-blue-700">
                                         <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">Mostrar</PrimaryButton>
@@ -68,6 +68,11 @@ import { Head, Link } from "@inertiajs/vue3";
 defineProps({
     genres: Object,
 });
+
+const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString(undefined, options);
+};
 
 const deleteGenre = (genre) => {
     // Lógica para eliminar el género
