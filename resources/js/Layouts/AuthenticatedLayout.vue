@@ -46,6 +46,13 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Genres
                                 </NavLink>
+
+                                <NavLink
+                                    :href="route('books.index')"
+                                    :active="route().current('books.index')"
+                                >
+                                    Books
+                                </NavLink>
                             </div>
                         </div>
 
