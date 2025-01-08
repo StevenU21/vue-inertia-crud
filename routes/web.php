@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ImageController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('genres', GenreController::class);
     Route::resource('books', BookController::class);
+    Route::resource('images', ImageController::class);
 });
 
 require __DIR__ . '/auth.php';
