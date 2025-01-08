@@ -34,10 +34,10 @@ class ImageRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.required' => 'El Campo de Imagen es Requerido.',
-            'file.image' => 'El Campo de Imagen debe ser una Imagen.',
-            'file.mimes' => 'El Campo de Imagen debe ser un Archivo de Tipo: :values.',
-            'file.max' => 'El Campo de Imagen no debe pesar más de :max Kilobytes.'
+            'file.required' => 'The Image Field is Required.',
+            'file.image' => 'The Image Field must be an Image.',
+            'file.mimes' => 'The Image Field must be a File of Type: :values.',
+            'file.max' => 'The Image Field must not exceed :max Kilobytes.'
         ];
     }
 }

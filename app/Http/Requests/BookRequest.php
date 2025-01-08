@@ -38,22 +38,22 @@ class BookRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'El Campo de Título es Requerido.',
-            'title.string' => 'El Campo de Título debe ser un Texto.',
-            'title.min' => 'El Campo de Título debe tener al menos :min Caracteres.',
-            'title.max' => 'El Campo de Título no debe tener más de :max Caracteres.',
-            'description.required' => 'El Campo de Descripción es Requerido.',
-            'description.string' => 'El Campo de Descripción debe ser un Texto.',
-            'description.min' => 'El Campo de Descripción debe tener al menos :min Caracteres.',
-            'description.max' => 'El Campo de Descripción no debe tener más de :max Caracteres.',
-            'author.required' => 'El Campo de Autor es Requerido.',
-            'author.string' => 'El Campo de Autor debe ser un Texto.',
-            'author.min' => 'El Campo de Autor debe tener al menos :min Caracteres.',
-            'author.max' => 'El Campo de Autor no debe tener más de :max Caracteres.',
-            'release_date.required' => 'El Campo de Fecha de Lanzamiento es Requerido.',
-            'release_date.date' => 'El Campo de Fecha de Lanzamiento debe ser una Fecha.',
-            'genre_id.required' => 'El Campo de Género es Requerido.',
-            'genre_id.exists' => 'El Género Seleccionado no Existe.'
+            'title.required' => 'The Title Field is Required.',
+            'title.string' => 'The Title Field must be a String.',
+            'title.min' => 'The Title Field must be at least :min Characters.',
+            'title.max' => 'The Title Field must not exceed :max Characters.',
+            'description.required' => 'The Description Field is Required.',
+            'description.string' => 'The Description Field must be a String.',
+            'description.min' => 'The Description Field must be at least :min Characters.',
+            'description.max' => 'The Description Field must not exceed :max Characters.',
+            'author.required' => 'The Author Field is Required.',
+            'author.string' => 'The Author Field must be a String.',
+            'author.min' => 'The Author Field must be at least :min Characters.',
+            'author.max' => 'The Author Field must not exceed :max Characters.',
+            'release_date.required' => 'The Release Date Field is Required.',
+            'release_date.date' => 'The Release Date Field must be a Date.',
+            'genre_id.required' => 'The Genre Field is Required.',
+            'genre_id.exists' => 'The Genre Field must be a Valid Genre.'
         ];
     }
 }
