@@ -48,16 +48,7 @@ export default {
                 onSuccess: () => {
                     form.reset();
                     Swal.fire("Success!", "Genre has been updated.", "success");
-                },
-                onError: () => {
-                    if (form.errors.name) {
-                        form.reset("name");
-                    }
-                    if (form.errors.description) {
-                        form.reset("description");
-                    }
-                    Swal.fire("Failed!", "Failed to update genre.", "error");
-                },
+                }
             });
         },
     },

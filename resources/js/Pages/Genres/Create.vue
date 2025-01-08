@@ -41,20 +41,7 @@ export default {
                         'Genre has been created.',
                         'success'
                     );
-                },
-                onError: () => {
-                    if (form.errors.name) {
-                        form.reset("name");
-                    }
-                    if (form.errors.description) {
-                        form.reset("description");
-                    }
-                    Swal.fire(
-                        'Failed!',
-                        'Failed to create genre.',
-                        'error'
-                    );
-                },
+                }
             });
         },
     },
