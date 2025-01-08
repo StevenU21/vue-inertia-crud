@@ -1,12 +1,7 @@
 <template>
     <transition name="modal">
-        <div
-            v-if="visible"
-            class="fixed inset-0 z-50 overflow-auto bg-smoke-dark flex backdrop-blur"
-        >
-            <div
-                class="relative p-8 bg-gray-800 text-white w-full max-w-md m-auto flex-col flex rounded-lg"
-            >
+        <div v-if="visible" class="fixed inset-0 z-50 overflow-auto bg-smoke-dark flex backdrop-blur">
+            <div class="relative p-8 bg-gray-800 text-white w-full max-w-md m-auto flex-col flex rounded-lg">
                 <span class="absolute top-0 right-0 p-4">
                     <button @click="closeModal" class="text-white">
                         <i class="fas fa-times"></i>
