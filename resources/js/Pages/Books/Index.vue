@@ -13,7 +13,7 @@
                 <div class="flex justify-between mb-6">
                     <Pagination class="hidden sm:block" :links="books.links" />
 
-                    <PrimaryButton @click="showCreateModal = true">
+                    <PrimaryButton @click="openCreateModal">
                         <i class="fas fa-plus mr-2"></i> Create Book
                     </PrimaryButton>
                 </div>
@@ -96,19 +96,19 @@
             </div>
         </div>
 
-        <Modal v-if="showCreateModal" @close="showCreateModal = false">
+        <Modal :visible="showCreateModal" @close="showCreateModal = false">
             <div class="p-4">
                 <Form :submitAction="createBook" :genres="genres" buttonText="Create Book" />
             </div>
         </Modal>
 
-        <Modal v-if="showEditModal" @close="showEditModal = false">
+        <Modal :visible="showEditModal" @close="showEditModal = false">
             <div class="p-4">
                 <Form :submitAction="updateBook" :genres="genres" :book="currentBook" buttonText="Update Book" />
             </div>
         </Modal>
 
-        <Modal v-if="showShowModal" @close="showShowModal = false">
+        <Modal :visible="showShowModal" @close="showShowModal = false">
             <Show :book="currentBook" />
         </Modal>
     </AuthenticatedLayout>
@@ -180,6 +180,10 @@ const createBook = (form) => {
             );
         }
     });
+};
+
+const openCreateModal = () => {
+    showCreateModal.value = true;
 };
 
 const openEditModal = (book) => {
