@@ -29,27 +29,27 @@
                                         <i class="fas fa-id-badge mr-2"></i>ID
                                     </th>
                                     <th class="text-white p-4 text-left">
-                                        <i class="fas fa-font mr-2"></i>Nombre
+                                        <i class="fas fa-font mr-2"></i>Name
                                     </th>
                                     <th class="text-white p-4 text-left">
-                                        <i class="fas fa-align-left mr-2"></i>Descripción
+                                        <i class="fas fa-align-left mr-2"></i>Description
                                     </th>
                                     <th class="text-white p-4 text-left">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Fecha de Registro
+                                        <i class="fas fa-calendar-alt mr-2"></i>Registered At
                                     </th>
                                     <th class="text-white p-4">
-                                        <i class="fas fa-cogs mr-2"></i>Acciones
+                                        <i class="fas fa-cogs mr-2"></i>Actions
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-if="genres.data.length === 0">
                                     <td colspan="5" class="text-white px-4 py-8 text-center bg-gray-700 rounded-lg">
-                                        Aún no hay registros
+                                        No genres found.
                                     </td>
                                 </tr>
                                 <tr v-else v-for="genre in genres.data" :key="genre.id">
-                                    <td class="text-white px-4 py-2">{{ genre.slug }}</td>
+                                    <td class="text-white px-4 py-2">{{ genre.id }}</td>
                                     <td class="text-white px-4 py-2">{{ genre.name }}</td>
                                     <td class="text-white px-4 py-2">{{ genre.description }}</td>
                                     <td class="text-white px-4 py-2">{{ formatDate(genre.created_at) }}</td>
@@ -57,16 +57,16 @@
                                         <div class="flex space-x-2 justify-center">
                                             <Link :href="route('genres.show', genre.slug)" class="text-blue-500 hover:text-blue-700">
                                                 <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
-                                                    <i class="fas fa-eye mr-2"></i> Mostrar
+                                                    <i class="fas fa-eye mr-2"></i> Show
                                                 </PrimaryButton>
                                             </Link>
                                             <Link :href="route('genres.edit', genre.slug)" class="text-blue-500 hover:text-blue-700">
                                                 <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
-                                                    <i class="fas fa-edit mr-2"></i> Editar
+                                                    <i class="fas fa-edit mr-2"></i> Edit
                                                 </PrimaryButton>
                                             </Link>
                                             <PrimaryButton @click="deleteGenre(genre.slug)" class="bg-red-500 hover:bg-red-700 text-white">
-                                                <i class="fas fa-trash mr-2"></i> Eliminar
+                                                <i class="fas fa-trash mr-2"></i> Delete
                                             </PrimaryButton>
                                         </div>
                                     </td>

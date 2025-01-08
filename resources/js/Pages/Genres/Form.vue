@@ -34,7 +34,7 @@
         <div class="mt-8 flex justify-between">
             <Link :href="route('genres.index')">
                 <PrimaryButton class="bg-gray-500 hover:bg-gray-700 text-white">
-                    <i class="fas fa-arrow-left mr-2"></i> Volver
+                    <i class="fas fa-arrow-left mr-2"></i> Back
                 </PrimaryButton>
             </Link>
             <PrimaryButton type="submit">
