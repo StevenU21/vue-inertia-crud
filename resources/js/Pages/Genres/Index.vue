@@ -85,7 +85,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import Pagination from "@/Components/Pagination.vue";
 import { Head, Link, router } from "@inertiajs/vue3";
-import Swal from 'sweetalert2';
 
 defineProps({
     genres: Object,

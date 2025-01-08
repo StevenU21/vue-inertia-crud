@@ -31,7 +31,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
 import Form from "@/Pages/Genres/Form.vue";
-import Swal from "sweetalert2";
 
 export default {
     components: {
