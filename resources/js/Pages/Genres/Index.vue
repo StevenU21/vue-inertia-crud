@@ -53,17 +53,17 @@
                                 <td class="text-white px-4 py-2">{{ genre.description }}</td>
                                 <td class="text-white px-4 py-2">{{ formatDate(genre.created_at) }}</td>
                                 <td class="text-white px-4 py-2 space-x-4 text-center">
-                                    <Link :href="route('genres.show', genre.id)" class="text-blue-500 hover:text-blue-700">
+                                    <Link :href="route('genres.show', genre.slug)" class="text-blue-500 hover:text-blue-700">
                                         <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
                                             <i class="fas fa-eye mr-2"></i> Mostrar
                                         </PrimaryButton>
                                     </Link>
-                                    <Link :href="route('genres.edit', genre.id)" class="text-blue-500 hover:text-blue-700">
+                                    <Link :href="route('genres.edit', genre.slug)" class="text-blue-500 hover:text-blue-700">
                                         <PrimaryButton class="bg-blue-500 hover:bg-blue-700 text-white">
                                             <i class="fas fa-edit mr-2"></i> Editar
                                         </PrimaryButton>
                                     </Link>
-                                    <PrimaryButton @click="deleteGenre(genre)" class="bg-red-500 hover:bg-red-700 text-white">
+                                    <PrimaryButton @click="deleteGenre(genre.slug)" class="bg-red-500 hover:bg-red-700 text-white">
                                         <i class="fas fa-trash mr-2"></i> Eliminar
                                     </PrimaryButton>
                                 </td>
@@ -84,7 +84,8 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import Pagination from "@/Components/Pagination.vue";
-import { Head, Link } from "@inertiajs/vue3";
+import { Head, Link, router } from "@inertiajs/vue3";
+import Swal from 'sweetalert2';
 
 defineProps({
     genres: Object,
@@ -95,7 +96,34 @@ const formatDate = (date) => {
     return new Date(date).toLocaleDateString(undefined, options);
 };
 
-const deleteGenre = (genre) => {
-    // Lógica para eliminar el género
+const deleteGenre = (slug) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            router.delete(route("genres.destroy", slug), {
+                onSuccess: () => {
+                    Swal.fire(
+                        'Deleted!',
+                        'Genre has been deleted.',
+                        'success'
+                    );
+                },
+                onError: () => {
+                    Swal.fire(
+                        'Failed!',
+                        'Failed to delete genre.',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
 };
 </script>
