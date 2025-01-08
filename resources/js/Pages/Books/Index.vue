@@ -98,13 +98,13 @@
 
         <Modal :visible="showCreateModal" @close="showCreateModal = false">
             <div class="p-4">
-                <Form :submitAction="createBook" :genres="genres" buttonText="Create Book" />
+                <Form :submitAction="createBook" :genres="genres" buttonText="Create Book" @saved="showCreateModal = false" />
             </div>
         </Modal>
 
         <Modal :visible="showEditModal" @close="showEditModal = false">
             <div class="p-4">
-                <Form :submitAction="updateBook" :genres="genres" :book="currentBook" buttonText="Update Book" />
+                <Form :submitAction="updateBook" :genres="genres" :book="currentBook" buttonText="Update Book" @saved="showEditModal = false" />
             </div>
         </Modal>
 
@@ -163,20 +163,13 @@ const deleteBook = (slug) => {
 };
 
 const createBook = (form) => {
-    router.post(route('books.store'), form, {
+    form.post(route('books.store'), {
         onSuccess: () => {
             showCreateModal.value = false;
             Swal.fire(
                 'Created!',
                 'Book has been created.',
                 'success'
-            );
-        },
-        onError: () => {
-            Swal.fire(
-                'Failed!',
-                'Failed to create book.',
-                'error'
             );
         }
     });
@@ -197,7 +190,7 @@ const openShowModal = (book) => {
 };
 
 const updateBook = (form) => {
-    router.put(route('books.update', currentBook.value.slug), form, {
+    form.put(route('books.update', currentBook.value.slug), {
         onSuccess: () => {
             showEditModal.value = false;
             Swal.fire(

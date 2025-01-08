@@ -73,7 +73,7 @@
         </div>
 
         <div class="mt-8 flex justify-end">
-            <PrimaryButton type="submit">
+            <PrimaryButton :disabled="form.processing" type="submit">
                 <i class="fas fa-save mr-2"></i> {{ buttonText }}
             </PrimaryButton>
         </div>
@@ -87,7 +87,7 @@ import TextInput from "@/Components/TextInput.vue";
 import TextArea from "@/Components/TextArea.vue";
 import InputError from "@/Components/InputError.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { defineProps } from "vue";
+import { defineProps, watch } from "vue";
 
 const props = defineProps({
     book: {
@@ -125,4 +125,13 @@ const form = useForm({
 const submit = () => {
     props.submitAction(form);
 };
+
+// Watch for changes in props.book to update the form values
+watch(() => props.book, (newBook) => {
+    form.title = newBook.title;
+    form.description = newBook.description;
+    form.author = newBook.author;
+    form.release_date = newBook.release_date;
+    form.genre_id = newBook.genre_id;
+}, { immediate: true });
 </script>
