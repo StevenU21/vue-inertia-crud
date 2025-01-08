@@ -28,7 +28,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('genres', GenreController::class);
     Route::resource('books', BookController::class);
+
     Route::get('/files', [FileController::class, 'index'])->name('files.index');
+    Route::post('/files/store', [FileController::class, 'store'])->name('files.store');
+    Route::patch('/files/{file}', [FileController::class, 'update'])->name('files.update');
+    Route::delete('/files/{file}', [FileController::class, 'destroy'])->name('files.destroy');
 });
 
 require __DIR__ . '/auth.php';
