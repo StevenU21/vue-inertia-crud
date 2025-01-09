@@ -1,67 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Inertia Vue CRUD
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Inertia.js](https://img.shields.io/badge/Inertia.js-%234B5562?style=for-the-badge&logo=inertia&logoColor=white) ![Vue.js](https://img.shields.io/badge/Vue.js-%234FC08D?style=for-the-badge&logo=vue.js&logoColor=white) ![Laravel](https://img.shields.io/badge/Laravel-%23FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 
-## About Laravel
+Este proyecto es un CRUD desarrollado con **Inertia.js**, **Vue.js** y **Laravel**. Permite gestionar tres tablas: **genres**, **books** e **images**, explorando conceptos avanzados como enrutamiento, relaciones, vistas dinámicas, validaciones y manejo eficiente de datos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **Genres**
+- Cada género tiene su propia vista detallada.
+- Relación uno a muchos con la tabla **books**.
+- Paginación y carga eficiente de datos.
 
-## Learning Laravel
+### **Books**
+- Gestión mediante modales para crear, editar y eliminar libros.
+- Relación con la tabla **genres**.
+- Validaciones en el frontend y backend.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### **Images**
+- Galería de imágenes con opción para subir hasta 10 imágenes simultáneamente.
+- Vista principal (**index**) con una galería visual de las imágenes.
+- Carga asincrónica y manejo de archivos con buen rendimiento.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### **Otras funcionalidades**
+- **Paginación:** Implementada en todas las tablas para un rendimiento óptimo.
+- **Relaciones:** Consultas optimizadas para cargar datos relacionados.
+- **Cargas asincrónicas:** Mejora la experiencia de usuario al reducir tiempos de espera.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Instalación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### **Requisitos previos**
+- PHP 8.2 o superior.
+- Composer.
+- Node.js y npm.
+- Base de datos MySQL o compatible.
 
-### Premium Partners
+### **Pasos**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/StevenU21/vue-inertia-crud.git
+   cd vue-inertia-crud
+   ```
 
-## Contributing
+2. **Instalar dependencias PHP**
+   ```bash
+   composer install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. **Instalar dependencias Node.js**
+   ```bash
+   npm install
+   ```
 
-## Code of Conduct
+4. **Configurar el archivo `.env`**
+   - Copia el archivo de ejemplo:
+     ```bash
+     cp .env.example .env
+     ```
+   - Configura la conexión a la base de datos.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Generar la clave de la aplicación**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+6. **Migrar las tablas a la base de datos**
+   ```bash
+   php artisan migrate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7. **Compilar los assets**
+   ```bash
+   npm run dev
+   ```
 
-## License
+8. **Iniciar el servidor**
+   ```bash
+   php artisan serve
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# vue-inertia-crud" 
+   Accede a la aplicación en `http://localhost:8000`.
+
+---
+
+## Estructura del proyecto
+
+- **Genres:** Cada registro se visualiza en vistas individuales.
+- **Books:** Modales para operaciones CRUD.
+- **Images:** Galería con opción de carga múltiple.
+
+---
+
+## Contribuciones
+
+¡Las contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias, por favor abre un [issue](https://github.com/StevenU21/vue-inertia-crud/issues) o crea un pull request.
+
+---
+
+## Autor
+
+Desarrollado por **Steven Ulloa**. Puedes encontrar más de mi trabajo en [mi perfil de GitHub](https://github.com/StevenU21).
+
+---
