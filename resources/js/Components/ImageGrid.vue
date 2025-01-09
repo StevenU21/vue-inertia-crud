@@ -52,7 +52,7 @@ export default {
                     title: 'Deleted!',
                     text: 'The image has been deleted.',
                     timer: 1500,
-                    showConfirmButton: false,
+                    showConfirmButton: true,
                 });
             } catch (error) {
                 console.error("Error deleting image:", error);
